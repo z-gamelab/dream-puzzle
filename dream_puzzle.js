@@ -121,7 +121,7 @@ $(document).ready(function () {
 		
 		selectedPiece = newPiece(selectedPieces);
 		iterations = iterations + 1;
-		$('#wrapper' + slider).find('ul').append('<li><img class="sPiece" src="' + pool[selectedPieces[selectedPieces.length-1]].piece + '" /></li>');
+		$('#wrapper' + slider).append('<div><img class="sPiece" src="' + pool[selectedPieces[selectedPieces.length-1]].piece + '" /></div>');
 		
 		if (iterations === sliderBreak || iterations/2 === sliderBreak || iterations/3 === sliderBreak) {
 			slider = slider + 1;
@@ -288,10 +288,10 @@ $(document).ready(function () {
 		myScroll2 = $('#wrapper1');
 		myScroll3 = $('#wrapper2');
 		myScroll4 = $('#wrapper3');
-		$('#wrapper0').slick();
-		$('#wrapper1').slick();
-		$('#wrapper2').slick();
-		$('#wrapper3').slick();
+		$('#wrapper0').slick({ slidesPerRow: 4, slidesToShow: 4 });
+		$('#wrapper1').slick({ slidesPerRow: 4, slidesToShow: 4 });
+		$('#wrapper2').slick({ slidesPerRow: 4, slidesToShow: 4 });
+		$('#wrapper3').slick({ slidesPerRow: 4, slidesToShow: 4 });
 		
 		//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	}, 500);

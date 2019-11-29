@@ -65,7 +65,7 @@
 		position: relative;
 		width: 100%;
 		overflow: hidden;
-		height: 60px;
+		height: 80px;
 		border-top: 2px solid #000;
 		border-bottom: 2px solid #000;
 		margin: 5px 0;
@@ -95,13 +95,13 @@
 		text-size-adjust: none;
 	}
 	
-	.slider ul {
+	.slick-track {
 		overflow: hidden;
 		-webkit-margin-before: -0.9em;
 		-webkit-padding-start: 0px;
 	}
 	
-	.slider ul li {
+	.sliderWrapper .slick-slide {
 		list-style: none;
 		display: inline-block;
 		height: 75px;
@@ -109,10 +109,10 @@
 		padding: 5px 10px;
 	}
 	
-	.slider ul li img {
+	.sliderWrapper .slick-slide img {
 		display: inline-block;
 		position: relative;
-		zoom: 50%;
+		zoom: 42%;
 		vertical-align: middle;
 	}
 	
@@ -130,7 +130,7 @@
 		-webkit-padding-start: 0;
 	}
 	
-	.matches ul li {
+	.matches div {
 		list-style: none;
 		display: inline-block;
 		height: 75px;
@@ -138,8 +138,8 @@
 		padding: 5px 10px;
 	}
 	
-	.matches ul li img {
-		zoom: 50%;
+	.matches div img {
+		zoom: 42%;
 		vertical-align: middle;
 	}
 	
@@ -331,5 +331,8 @@
 		display: block;
 		margin: 10px auto;
 		font-size: 20px;
+	}
+	.slick-arrow {
+		display: none!important;
 	}
 	/* End Dream Puzzle */
