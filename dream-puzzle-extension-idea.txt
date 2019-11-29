@@ -1,0 +1,5 @@
+idea for extending the game:
+
+when users match all six puzzle pieces, offer an opportunity to submit a guess at what the picture might be. Devise some meta data for each main-image such that it can be matched. If a match is found for the guess, unlock x amount of "coin" for the user. These "coin" can be accumulated to buy further puzzle packs as a free to play option. This way "coin" can also be offered for sale along with puzzle packs directly.
+
+Also, find out if app can offer users the option to save the image to their background once revealed since these are meant to be phone background images.

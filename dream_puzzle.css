@@ -1,0 +1,335 @@
+	/* Icomoon css */
+	@font-face {
+	  font-family: 'icomoon';
+	  src:  url('fonts/icomoon.eot?19zwld');
+	  src:  url('fonts/icomoon.eot?19zwld#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?19zwld') format('truetype'),
+		url('fonts/icomoon.woff?19zwld') format('woff'),
+		url('fonts/icomoon.svg?19zwld#icomoon') format('svg');
+	  font-weight: normal;
+	  font-style: normal;
+	}
+
+	[class^="icon-"], [class*=" icon-"] {
+	  /* use !important to prevent issues with browser extensions that change fonts */
+	  font-family: 'icomoon' !important;
+	  speak: none;
+	  font-style: normal;
+	  font-weight: normal;
+	  font-variant: normal;
+	  text-transform: none;
+	  line-height: 1;
+
+	  /* Better Font Rendering =========== */
+	  -webkit-font-smoothing: antialiased;
+	  -moz-osx-font-smoothing: grayscale;
+	}
+
+	.icon-cancel-circle:before {
+	  content: "\ea0d";
+	}
+	.icon-arrow-down:before {
+	  content: "\ea36";
+	}
+	/* End Icomoon */
+	
+	/* Dream Puzzle css */
+	html {
+		-ms-touch-action: none;
+		background-image: url('dream_puzzle.jpg');
+		background-size: cover;
+		-webkit-background-size: cover;
+		height: 100%;
+	}
+
+	body {
+		padding: 0;
+		margin: 0;
+		border: 0;
+		overflow-x: hidden; /* this is important to prevent the whole page to bounce */
+		color: #FFF;
+		overflow-y: hidden;
+		height: 100%;
+	}
+	
+	.welcome {
+		margin: 10px;
+		padding:  0px 0px 10px 15px;
+	}
+	
+	.welcomeText {
+		font-size: 14px;
+	}
+	
+	#wrapper0, #wrapper1, #wrapper2, #wrapper3 {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+		height: 60px;
+		border-top: 2px solid #000;
+		border-bottom: 2px solid #000;
+		margin: 5px 0;
+		padding: 10px;
+		z-index: 1;
+	}
+	
+	.slider {
+		width: 4550px;
+		height: 100%;
+		position: absolute;
+		z-index: 1;
+		-webkit-transform: translateZ(0);
+		-moz-transform: translateZ(0);
+		-ms-transform: translateZ(0);
+		-o-transform: translateZ(0);
+		transform: translateZ(0);
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		-webkit-text-size-adjust: none;
+		-moz-text-size-adjust: none;
+		-ms-text-size-adjust: none;
+		-o-text-size-adjust: none;
+		text-size-adjust: none;
+	}
+	
+	.slider ul {
+		overflow: hidden;
+		-webkit-margin-before: -0.9em;
+		-webkit-padding-start: 0px;
+	}
+	
+	.slider ul li {
+		list-style: none;
+		display: inline-block;
+		height: 75px;
+		line-height: 75px;
+		padding: 5px 10px;
+	}
+	
+	.slider ul li img {
+		display: inline-block;
+		position: relative;
+		zoom: 50%;
+		vertical-align: middle;
+	}
+	
+	.matches {
+		display: flex;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+		margin-top: 10px;
+		width: 100%;
+	}
+	
+	.matches ul {
+		-webkit-margin-before: 0;
+		-webkit-padding-start: 0;
+	}
+	
+	.matches ul li {
+		list-style: none;
+		display: inline-block;
+		height: 75px;
+		line-height: 75px;
+		padding: 5px 10px;
+	}
+	
+	.matches ul li img {
+		zoom: 50%;
+		vertical-align: middle;
+	}
+	
+	.live {
+		border: 1px solid red;
+	}
+	
+	.matches .live {
+		border-top: none!important;
+		border-right: none!important;
+		border-left: none!important;
+		border-bottom: none;
+		background: rgba(255,255,255,0.1);
+	}
+	
+	.puzzle-solved-image {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		-webkit-background-size: cover;
+		z-index: 2;
+	}
+	
+	.close-btn {
+		font-size: 32px;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		text-align: right;
+		z-index: 3;
+		display: block;
+	}
+	
+	.custom-modal {
+		position: absolute;
+		left: 50%;
+		margin-left: -150px;
+		z-index: 100;
+		width: 270px;
+		height: auto;
+		top: 15%;
+		background: url(lightYellow.jpg) no-repeat center center fixed;
+		background-size: cover;
+		-webkit-background-size: cover;
+		font-size: 18px;
+		padding: 15px;
+		color: #999;
+	}
+	
+	.custom-modal .question {
+		display: flex;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+	}
+	
+	.custom-modal .button-holder {
+		display: flex;
+		display: -webkit-flex;
+		-webkit-justify-content: center;
+		justify-content: center;
+	}
+	
+	.custom-modal input {
+		width: 82%;
+		height: 40px;
+		margin: 0 auto;
+		display: block;
+		margin-bottom: 30px;
+		font-size: 16px;
+		text-indent: 15px;
+	}
+	
+	.custom-modal button {
+		display: inline-block;
+		position: relative;
+		-webkit-appearance: none;
+		background-color: green;
+		color: #FFF;
+		font-size: 16px;
+		width: 40%;
+		height: auto;
+		margin: 0 10px;
+		text-align: center;
+	}
+	
+	@-webkit-keyframes rotate {
+	  from {
+		-webkit-transform: rotate(0deg);
+	  }
+	  to { 
+		-webkit-transform: rotate(360deg);
+	  }
+	}
+	#goldLoader
+	{
+	position: absolute;
+	top: 2px;
+	left: 40%;
+    -webkit-animation-name:             rotate; 
+    -webkit-animation-duration:         2s; 
+    -webkit-animation-iteration-count:  infinite;
+    -webkit-animation-timing-function: linear;
+    }
+
+	
+	#how-to-play {
+		position: absolute;
+		top: 0;
+		background: url('lightYellow.jpg');
+		background-size: cover;
+		-webkit-background-size: cover;
+		z-index: 205;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.scroll-indicator {
+		font-size: 16px;
+		text-align: right;
+		color: #000;
+		display: block;
+		margin: 10px 30px;
+	}
+	
+	#scrollInstructions {
+		color: #000;
+		padding: 0 15px;
+		height: 430px;
+		margin-top: 10px;
+		overflow: scroll;
+		-webkit-overflow-scrolling: touch;
+	}
+	
+	#how-to-play button {
+		background: blue;
+		color: #FFF;
+		width: 250px;
+		height: 60px;
+		display: block;
+		margin: 10px auto;
+		font-size: 20px;		
+	}
+	
+	#main-menu {
+		position: absolute;
+		top: 0;
+		background: url('intro_screen.jpg');
+		background-size: cover;
+		-webkit-background-size: cover;
+		z-index: 200;
+		width: 100%;
+		height: 100%;
+		color: #000;
+		font-size: 16px;
+	}
+	
+	#main-menu .title {
+		background: #999;
+		width: 80%;
+		margin: 0 auto;
+		padding: 0 0 1px 0;
+	}
+	
+	#main-menu h1 {
+		margin-top: 40px;
+		text-align: center;
+		padding-top: 10px;
+	}
+	
+	#main-menu h3 {
+		text-align: center;
+	}
+	
+	#main-menu .menu {
+		margin-top: 100px;
+		width: 100%;
+		height: auto;
+		text-align: center;
+	}
+	
+	#main-menu .menu button {
+		background: blue;
+		color: #FFF;
+		width: 250px;
+		height: 60px;
+		display: block;
+		margin: 10px auto;
+		font-size: 20px;
+	}
+	/* End Dream Puzzle */
