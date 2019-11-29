@@ -186,13 +186,13 @@ $(document).ready(function () {
 	var matchGame = function (e) {
 		var copyImage = $(e.currentTarget).attr('src');
 		$(e.currentTarget).addClass('live');
-		var $currentSlider = $(e.currentTarget).parent('li').parent('ul').parent('div').parent('.sliderWrapper');
+		var $currentSlider = $(e.currentTarget).parent('.sliderWrapper');
 		var $nextSlider = $currentSlider.next('.sliderWrapper');
 		var thisScroller;
 		if ($nextSlider.is('.matches')) {
 			$('.match').each(function (i, match) {
 				if ($(match).attr('src') === copyImage) {
-					$(match).parent('li').addClass('live');
+					$(match).parent('div').addClass('live');
 				}
 			});
 		} else {
@@ -206,16 +206,16 @@ $(document).ready(function () {
 				thisScroller = myScroll4;
 			}
 			
-			var $newImg = $('<li><img class="sPiece live" src="' + copyImage + '" /></li>');
+			var $newImg = $('<div><img class="sPiece live" src="' + copyImage + '" /></div>');
 			if (challenge) {
 				var placement = Math.floor(Math.random() * sliderBreak),
-					$placedSliderLi = $($nextSlider.find('ul li')[placement]);
+					$placedSliderLi = $($nextSlider.find('div')[placement]);
 				$placedSliderLi.before($newImg);
-				$($nextSlider.find('ul li')[placement]).find('img').on('click', matchGame); // Takes the place of placedSliderLi
+				$($nextSlider.find('div')[placement]).find('img').on('click', matchGame); // Takes the place of placedSliderLi
 			} else {
 				thisScroller.slick('setPosition');
-				$nextSlider.find('ul').prepend($newImg);
-				$($nextSlider.find('ul').find('li').first()).find('img').on('click', matchGame);
+				$nextSlider.prepend($newImg);
+				$($nextSlider.find('div').first()).find('img').on('click', matchGame);
 			}
 		}
 		
@@ -223,12 +223,12 @@ $(document).ready(function () {
 		// Also calls finishing function if game is completed
 		_.delay(function () {
 			$('.main .live').removeClass('live');
-			if ($('.matches li.live').length === $('.matches li').length) {
+			if ($('.matches div.live').length === $('.matches div').length) {
 				guessForCoin();
 			}
-			var width = $nextSlider.find('.slider').width();
+			var width = $nextSlider.width();
 			width = width + 80;
-			$nextSlider.find('.slider').css('width', width + 'px');
+			$nextSlider.css('width', width + 'px');
 			if (typeof thisScroller !== 'undefined') {
 				if (challenge) {
 					thisScroller.slick('setPosition');
@@ -245,10 +245,10 @@ $(document).ready(function () {
 		dir = newDirectory(); // Get new dir
 
 		//Ensure clear sliders
-		$('#wrapper0 ul').empty();
-		$('#wrapper1 ul').empty();
-		$('#wrapper2 ul').empty();
-		$('#wrapper3 ul').empty();
+		$('#wrapper0').empty();
+		$('#wrapper1').empty();
+		$('#wrapper2').empty();
+		$('#wrapper3').empty();
 		$('#matches ul').empty();
 		
 		//Fill initial array
@@ -256,15 +256,15 @@ $(document).ready(function () {
 			pool.push({ piece: dir + '/puzz' + i + '.png'})
 		}	
 		
-		//Pick random six from entire pool
+		//Pick random four from entire pool
 		var piece1 = newMatchPiece();
 		var piece2 = newMatchPiece();
 		var piece3 = newMatchPiece();
 		var piece4 = newMatchPiece();
-		$('#matches').find('ul').append('<li><img class="match" src="' + pool[piece1].piece + '" /></li>');
-		$('#matches').find('ul').append('<li><img class="match" src="' + pool[piece2].piece + '" /></li>');
-		$('#matches').find('ul').append('<li><img class="match" src="' + pool[piece3].piece + '" /></li>');
-		$('#matches').find('ul').append('<li><img class="match" src="' + pool[piece4].piece + '" /></li>');
+		$('#matches').append('<div><img class="match" src="' + pool[piece1].piece + '" /></div>');
+		$('#matches').append('<div><img class="match" src="' + pool[piece2].piece + '" /></div>');
+		$('#matches').append('<div><img class="match" src="' + pool[piece3].piece + '" /></div>');
+		$('#matches').append('<div><img class="match" src="' + pool[piece4].piece + '" /></div>');
 		
 		// Fill sliders
 		iteratePieces();	
