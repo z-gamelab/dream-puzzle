@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html manifest="dream_puzzle.appcache">
+<head>
+	<meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta charset="utf-8">
+	<title>Dream Puzzle</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.js"></script>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="dream_puzzle.js"></script>
+	<link rel="stylesheet" type="text/css" href="dream_puzzle.css"></style>
+</head>
+<body>
+<div id="main-menu" class="main-menu">
+	<div class="title">
+		<h1>Dream Puzzle</h1>
+		<h3>&copy; 2016 Zach Pulkin</h3>
+	</div>
+	<div class="menu">
+		<button class="start-easy-mode">New Game</button>
+		<button class="start-challenge">Challenge Mode</button>
+		<button class="open-purchased" style="display:none;">Expansions</button>
+		<button class="instructions">How to Play</button>
+		<button class="visit-store">Visit Store</button>
+	</div>
+</div>
+<div id="expansions" style="display: none;">
+	<div class="title">
+		<h1>Expansions</h1>
+	</div>
+	<div class="menu"></div>
+</div>
+<div id="how-to-play" style="display: none;">
+	<div class="instructions">
+		<div id="scrollInstructions">
+			To start a new game, click the "New Game" button on the main menu. 
+			You will be presented a complete 220 piece puzzle organized into four sliders. 
+			There will be six randomly chosen puzzle pieces at the bottom of the screen below the sliders. 
+			The object of the game is to find the match for each of these six pieces which is scattered somewhere throughout the four sliders above. 
+			Begin by choosing a piece (or multiple pieces) and browse the sliders until you find one. 
+			When you believe you have matched it, tap on it. It will flash red and copy into the next slider down. 
+			If you chose "New Game" it will pre-pend the piece at the beginning of the next slider so that you can easily tap again. 
+			If you choose "Challenge Mode" the piece will copy randomly into the next slider for you to find before tapping again. 
+			Proceed to tap the piece down the sliders until you reach the lowest slider. 
+			If you tap again from the final slider and you have correctly matched one of the pieces, that piece will light up. 
+			Once you have found and lit up all six pieces, you will be given the opportunity to make a guess at the completed puzzle. 
+			If you are correct, you will be credited 10 store credits. You may also opt to skip this by choosing "No." 
+			Either way the completed puzzle will be revealed. 
+			When you close the picture you will be presented the option to save the picture as your phone background and to begin a new game. 
+			New games will continue in the mode you chose on the main menu.<br><br>
+			Store credits will accumulate as you make successful puzzle guesses.
+			There will be puzzle packs released on a regular basis for purchase in the store.
+			In the store you will see your accumulated store credit. 
+			There will also be packs of credit that you can purchase.
+			Choose "Visit Store" from the main menu to see the options.
+			You will also be presented the option to visit the store when you have exhausted the puzzles currently unlocked.
+		</div>
+		<i class="icon-arrow-down scroll-indicator"></i>
+		<button class="main-menu-btn">Main Menu</button>
+	</div>
+</div>
+<div class="custom-modal" style="display: none;">
+	<p class="question"></p>
+	<div class="input-holder"></div>
+	<div class="button-holder"></div>
+</div>
+<div id="main-picture" style="display: none;">
+	<i class="icon-cancel-circle close-btn"></i>
+	<div class="puzzle-solved-image"></div>
+</div>
+<div class="main-container">
+	<div class="welcome">
+		<p class="welcomeText">Welcome! See the main menu for detailed instructions! Light them all to reveal the puzzle!</p>
+	</div>
+	<div id="wrapper0" class="sliderWrapper main">
+		<div class="slider">
+			<ul></ul>
+		</div>
+	</div>
+	<div id="wrapper1" class="sliderWrapper main">
+		<div class="slider">
+			<ul></ul>
+		</div>
+	</div>
+	<div id="wrapper2" class="sliderWrapper main">
+		<div class="slider">
+			<ul></ul>
+		</div>
+	</div>
+	<div id="wrapper3" class="sliderWrapper main">
+		<div class="slider">
+			<ul></ul>
+		</div>
+	</div>
+	<div id="matches" class="matches sliderWrapper">
+		<div>
+			<ul></ul>
+		</div>
+	</div>
+</div>
+</body>
+</html>
