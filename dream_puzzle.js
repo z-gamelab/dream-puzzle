@@ -213,7 +213,7 @@ $(document).ready(function () {
 				$placedSliderLi.before($newImg);
 				$($nextSlider.find('ul li')[placement]).find('img').on('click', matchGame); // Takes the place of placedSliderLi
 			} else {
-				thisScroller.scrollTo(0,0);
+				thisScroller.slick('setPosition');
 				$nextSlider.find('ul').prepend($newImg);
 				$($nextSlider.find('ul').find('li').first()).find('img').on('click', matchGame);
 			}
@@ -230,10 +230,8 @@ $(document).ready(function () {
 			width = width + 80;
 			$nextSlider.find('.slider').css('width', width + 'px');
 			if (typeof thisScroller !== 'undefined') {
-				var xPos = thisScroller.x;
-				thisScroller.refresh();
 				if (challenge) {
-					thisScroller.scrollTo(0, xPos);
+					thisScroller.slick('setPosition');
 				}
 			}
 		}, 250);		
@@ -282,18 +280,26 @@ $(document).ready(function () {
 	
 	/* Initialize Sliders */
 	setTimeout(function () {
-		myScroll1 = new IScroll('#wrapper0', { scrollX: true, scrollY: false, mouseWheel: true, click: true });
+		/*myScroll1 = new IScroll('#wrapper0', { scrollX: true, scrollY: false, mouseWheel: true, click: true });
 		myScroll2 = new IScroll('#wrapper1', { scrollX: true, scrollY: false, mouseWheel: true, click: true });
 		myScroll3 = new IScroll('#wrapper2', { scrollX: true, scrollY: false, mouseWheel: true, click: true });
-		myScroll4 = new IScroll('#wrapper3', { scrollX: true, scrollY: false, mouseWheel: true, click: true });
+		myScroll4 = new IScroll('#wrapper3', { scrollX: true, scrollY: false, mouseWheel: true, click: true });*/
+		myScroll1 = $('#wrapper0');
+		myScroll2 = $('#wrapper1');
+		myScroll3 = $('#wrapper2');
+		myScroll4 = $('#wrapper3');
+		$('#wrapper0').slick();
+		$('#wrapper1').slick();
+		$('#wrapper2').slick();
+		$('#wrapper3').slick();
 		
-		document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+		//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	}, 500);
 	
 	var newGame = function () {
 		$('.new-game').append('<img id="goldLoader" src="whitePuzzle.png" width="15" height="15" />');
 		initNewGame();
-		_.delay(function () {
+		/*_.delay(function () {
 			myScroll1.refresh();
 			myScroll2.refresh();
 			myScroll3.refresh();
@@ -302,7 +308,7 @@ $(document).ready(function () {
 			myScroll2.scrollTo(0,0);
 			myScroll3.scrollTo(0,0);
 			myScroll4.scrollTo(0,0);
-		},150);
+		},150);*/
 	};
 	
 	var mainMenu = function () {
