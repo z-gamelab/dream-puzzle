@@ -226,6 +226,7 @@ $(document).ready(function () {
 		// Also calls finishing function if game is completed
 		_.delay(function () {
 			$('.main .live').removeClass('live');
+			$(e.currentTarget).parent('div').blur();
 			if ($('.matches div.live').length === $('.matches div').length) {
 				guessForCoin();
 			}
