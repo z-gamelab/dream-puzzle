@@ -185,8 +185,8 @@ $(document).ready(function () {
 	// Game action logic
 	var matchGame = function (e) {
 		var copyImage = $(e.currentTarget).attr('src');
-		$(e.currentTarget).addClass('live');
-		var $currentSlider = $(e.currentTarget).parent('.sliderWrapper');
+		$(e.currentTarget).parent('div').addClass('live');
+		var $currentSlider = $(e.currentTarget).parent('div').parents('.sliderWrapper');
 		var $nextSlider = $currentSlider.next('.sliderWrapper');
 		var thisScroller;
 		if ($nextSlider.is('.matches')) {
@@ -197,25 +197,28 @@ $(document).ready(function () {
 			});
 		} else {
 			if ($nextSlider.is('#wrapper0')) {
-				thisScroller = myScroll1;
+				thisScroller = $('#wrapper0');
 			} else if ($nextSlider.is('#wrapper1')) {
-				thisScroller = myScroll2;
+				thisScroller = $('#wrapper1');
 			} else if ($nextSlider.is('#wrapper2')) {
-				thisScroller = myScroll3;
+				thisScroller = $('#wrapper2');
 			} else if ($nextSlider.is('#wrapper3')) {
-				thisScroller = myScroll4;
+				thisScroller = $('#wrapper3');
 			}
 			
 			var $newImg = $('<div><img class="sPiece live" src="' + copyImage + '" /></div>');
 			if (challenge) {
+				$(thisScroller).slick('destroy');
 				var placement = Math.floor(Math.random() * sliderBreak),
 					$placedSliderLi = $($nextSlider.find('div')[placement]);
 				$placedSliderLi.before($newImg);
 				$($nextSlider.find('div')[placement]).find('img').on('click', matchGame); // Takes the place of placedSliderLi
+				$(thisScroller).slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
 			} else {
-				thisScroller.slick('setPosition');
+				$(thisScroller).slick('destroy');
 				$nextSlider.prepend($newImg);
 				$($nextSlider.find('div').first()).find('img').on('click', matchGame);
+				$(thisScroller).slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
 			}
 		}
 		
@@ -226,12 +229,13 @@ $(document).ready(function () {
 			if ($('.matches div.live').length === $('.matches div').length) {
 				guessForCoin();
 			}
-			var width = $nextSlider.width();
+			/*var width = $nextSlider.width();
 			width = width + 80;
-			$nextSlider.css('width', width + 'px');
+			$nextSlider.css('width', width + 'px');*/
 			if (typeof thisScroller !== 'undefined') {
 				if (challenge) {
-					thisScroller.slick('setPosition');
+					$(thisScroller).slick('destroy');
+					$(thisScroller).slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
 				}
 			}
 		}, 250);		
@@ -288,10 +292,10 @@ $(document).ready(function () {
 		myScroll2 = $('#wrapper1');
 		myScroll3 = $('#wrapper2');
 		myScroll4 = $('#wrapper3');
-		$('#wrapper0').slick({ slidesPerRow: 4, slidesToShow: 4 });
-		$('#wrapper1').slick({ slidesPerRow: 4, slidesToShow: 4 });
-		$('#wrapper2').slick({ slidesPerRow: 4, slidesToShow: 4 });
-		$('#wrapper3').slick({ slidesPerRow: 4, slidesToShow: 4 });
+		$('#wrapper0').slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
+		$('#wrapper1').slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
+		$('#wrapper2').slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
+		$('#wrapper3').slick({ slidesPerRow: 4, slidesToShow: 4, slidesToScroll: 4 });
 		
 		//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 	}, 500);
