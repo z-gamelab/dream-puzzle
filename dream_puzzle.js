@@ -147,8 +147,7 @@ $(document).ready(function () {
 	
 	// Guess function
 	var submitForm = function (dir) {
-		$.getJSON("https://z-gamelab.github.io/dream-puzzle/main-image" + dir + ".json", function () {}).done (function (data) {
-			var text = JSON.parse(data);
+		$.getJSON("https://z-gamelab.github.io/dream-puzzle/main-image" + dir + ".json", function () {}).done (function (json) {
 			var guess = $('input[name="guess"]').val().trim().toLowerCase(),
 			metaGuess = /^.*/,
 			masterMatches = [],
@@ -158,7 +157,7 @@ $(document).ready(function () {
 			_.each(guesses, function (g) {
 				if (g) {
 					metaGuess = new RegExp(g);
-					matches = text.data.match(g);
+					matches = json.data.match(g);
 					if (!_.isNull(matches) && matches.length) {
 						masterMatches.push(matches[0]);
 					}
