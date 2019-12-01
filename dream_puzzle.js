@@ -148,7 +148,7 @@ $(document).ready(function () {
 	// Guess function
 	var submitForm = function (dir) {
 		$.getJSON("https://z-gamelab.github.io/dream-puzzle/main-image" + dir + ".json", function () {}).done (function (data) {
-			var text = JSON.parse(response);
+			var text = JSON.parse(data);
 			var guess = $('input[name="guess"]').val().trim().toLowerCase(),
 			metaGuess = /^.*/,
 			masterMatches = [],
