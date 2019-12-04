@@ -279,7 +279,7 @@ $(document).ready(function () {
 
 		setTimeout(function () {
 			$('.cover').hide();
-		}, 700);
+		}, 1000);
 	}
 	
 	//Start the Ball Rolling
