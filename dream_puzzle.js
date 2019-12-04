@@ -276,8 +276,13 @@ $(document).ready(function () {
 		
 		/* Game on */
 		$('.sPiece').off('click', matchGame).on('click', matchGame);
+
+		setTimeout(function () {
+			$('.cover').hide();
+		}, 700);
 	}
 	
+	//Start the Ball Rolling
 	initNewGame();
 	
 	//Set main image
@@ -373,4 +378,6 @@ $(document).ready(function () {
 			$('.scroll-indicator').css('opacity','1');
 		}
 	});
+
+	$('span.year').text(new Date().getFullYear());
 });
